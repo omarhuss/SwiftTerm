@@ -217,7 +217,7 @@ extension TerminalView {
         return CellDimension(width: max(1, snappedWidth), height: max(min(snappedHeight, 8192), 1))
     }
     
-    open func mapColor (color: Attribute.Color, isFg: Bool, isBold: Bool, useBrightColors: Bool = true) -> TTColor
+    func mapColor (color: Attribute.Color, isFg: Bool, isBold: Bool, useBrightColors: Bool = true) -> TTColor
     {
         switch color {
         case .defaultColor:
@@ -228,9 +228,9 @@ extension TerminalView {
             }
         case .defaultInvertedColor:
             if isFg {
-                return nativeForegroundColor.inverseColor()
+                return invertedForegroundColor
             } else {
-                return nativeBackgroundColor.inverseColor()
+                return invertedBackgroundColor
             }
         case .ansi256(let ansi):
             var midx: Int

@@ -1216,6 +1216,22 @@ open class TerminalView: UIScrollView, UITextInputTraits, UIKeyInput, UIScrollVi
         }
     }
 
+    /// Color used for inverted foreground (SGR 7 reverse video).
+    /// Defaults to `nativeForegroundColor.inverseColor()`.
+    /// Override in subclasses to provide opaque inverse colors when
+    /// `nativeBackgroundColor` is transparent.
+    open var invertedForegroundColor: UIColor {
+        nativeForegroundColor.inverseColor()
+    }
+
+    /// Color used for inverted background (SGR 7 reverse video).
+    /// Defaults to `nativeBackgroundColor.inverseColor()`.
+    /// Override in subclasses to provide opaque inverse colors when
+    /// `nativeBackgroundColor` is transparent.
+    open var invertedBackgroundColor: UIColor {
+        nativeBackgroundColor.inverseColor()
+    }
+
     /// Controls the color for the caret
     public var caretColor: UIColor {
         get { caretView?.caretColor ?? UIColor.black }
