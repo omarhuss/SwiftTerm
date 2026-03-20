@@ -21,7 +21,7 @@ let SwiftTermUnderlineStyleKey = NSAttributedString.Key("SwiftTermUnderlineStyle
 
 #if os(iOS) || os(visionOS)
 import UIKit
-typealias TTColor = UIColor
+public typealias TTColor = UIColor
 typealias TTFont = UIFont
 typealias TTRect = CGRect
 typealias TTBezierPath = UIBezierPath
