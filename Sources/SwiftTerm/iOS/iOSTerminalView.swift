@@ -214,6 +214,12 @@ open class TerminalView: UIScrollView, UITextInputTraits, UIKeyInput, UIScrollVi
     private var lastProgressValue: UInt8?
     
     var selection: SelectionService!
+
+    /// Whether the terminal currently has selected text.
+    /// Safe for subclass access without exposing internal SelectionService.
+    open var hasSelectedText: Bool {
+        selection?.getSelectedText().isEmpty == false
+    }
     var attrStrBuffer: CircularList<ViewLineInfo>!
     var images:[(image: TerminalImage, col: Int, row: Int)] = []
 
